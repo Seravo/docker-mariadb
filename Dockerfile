@@ -4,9 +4,13 @@ ARG VCS_REF
 LABEL org.label-schema.vcs-ref=$VCS_REF
 
 RUN \
-    /usr/local/sbin/docker-upgrade && \
-    apt-get -y install mariadb-server gosu && \
-    /usr/local/sbin/docker-cleanup
+    /usr/lib/docker-helpers/apt-setup && \
+    /usr/lib/docker-helpers/apt-upgrade && \
+    apt-get -y install \
+        gosu \
+        mariadb-server \
+        pwgen && \
+    /usr/lib/docker-helpers/apt-cleanup
 
 RUN \
     sed -ri 's/^user\s/#&/' /etc/mysql/my.cnf /etc/mysql/conf.d/* && \
