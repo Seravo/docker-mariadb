@@ -1,4 +1,4 @@
-FROM ypcs/debian:stretch
+FROM ypcs/debian:buster
 
 ARG APT_PROXY
 ARG VCS_REF
