@@ -29,8 +29,8 @@ VOLUME /var/lib/mysql
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
-ENV LC_ALL en_US.UTF-8
-ENV LC_LANG en_US.UTF-8
+ENV LC_ALL C.UTF-8
+ENV LC_LANG C.UTF-8
 
 CMD ["mysqld"]
 
