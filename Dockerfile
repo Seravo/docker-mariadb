@@ -10,7 +10,8 @@ RUN \
     apt-get -y install \
         gosu \
         mariadb-server \
-        pwgen && \
+        pwgen \
+        tzdata && \
     /usr/lib/docker-helpers/apt-cleanup
 
 RUN \
