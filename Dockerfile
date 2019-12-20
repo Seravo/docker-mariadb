@@ -20,7 +20,7 @@ RUN \
     chown -R mysql:mysql /var/lib/mysql /var/run/mysqld && \
     chmod 777 /var/run/mysqld
 
-COPY --chown root:root docker.cnf /etc/mysql/conf.d/docker.cnf
+COPY docker.cnf /etc/mysql/conf.d/docker.cnf
 
 RUN mkdir /docker-entrypoint-initdb.d
 
