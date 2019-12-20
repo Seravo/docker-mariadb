@@ -19,6 +19,7 @@ RUN \
     rm -rf /var/lib/mysql && \
     mkdir -p /var/lib/mysql /var/run/mysqld && \
     chown -R mysql:mysql /var/lib/mysql /var/run/mysqld && \
+    sed -i 's/^bind-address/#bind-address/g' /etc/mysql/*.cnf /etc/mysql/conf.d/*.cnf /etc/mysql/mariadb.conf.d/*.cnf && \
     chmod 777 /var/run/mysqld
 
 COPY docker.cnf /etc/mysql/conf.d/docker.cnf
