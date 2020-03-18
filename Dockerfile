@@ -8,6 +8,7 @@ RUN \
     /usr/lib/docker-helpers/apt-setup && \
     /usr/lib/docker-helpers/apt-upgrade && \
     apt-get -y install \
+        galera-3 \
         gosu \
         mariadb-server \
         pwgen \
