@@ -34,6 +34,7 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 ENV LC_ALL C.UTF-8
 ENV LC_LANG C.UTF-8
+HEALTHCHECK --interval=10s --timeout=15s --start-period=120s --retries=3 CMD echo "SHOW STATUS;" |mysql
 
 CMD ["mysqld"]
 
