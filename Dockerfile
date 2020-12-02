@@ -1,4 +1,4 @@
-FROM ypcs/debian:buster
+FROM ypcs/debian:bullseye
 
 ARG APT_PROXY
 ARG VCS_REF
@@ -8,7 +8,7 @@ RUN \
     /usr/lib/docker-helpers/apt-setup && \
     /usr/lib/docker-helpers/apt-upgrade && \
     apt-get -y install \
-        galera-3 \
+        galera-4 \
         gosu \
         mariadb-server \
         pwgen \
@@ -35,5 +35,5 @@ ENTRYPOINT ["/entrypoint.sh"]
 ENV LC_ALL C.UTF-8
 ENV LC_LANG C.UTF-8
 
-CMD ["mysqld"]
+CMD ["mariadbd"]
 

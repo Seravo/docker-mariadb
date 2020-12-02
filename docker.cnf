@@ -1,4 +1,4 @@
-[mysqld]
+[mariadb]
 bind-address = 0.0.0.0
 skip-host-cache
 skip-name-resolve
