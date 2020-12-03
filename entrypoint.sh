@@ -230,7 +230,7 @@ docker_setup_db() {
 	# Sets root password and creates root users for non-localhost hosts
 	local rootCreate=
 	# default root to listen for connections from anywhere
-	if [ -n "$MYSQL_ROOT_HOST" ] && [ "$MYSQL_ROOT_HOST" != 'localhost' ]; then
+	if [ -n "$MYSQL_ROOT_HOST" ] && [ "$MYSQL_ROOT_HOST" != 'localhost' ] && [ -n "$MYSQL_ALLOW_EMPTY_PASSWORD$MYSQL_ROOT_PASSWORD" ]; then
 		# no, we don't care if read finds a terminating character in this heredoc
 		# https://unix.stackexchange.com/questions/265149/why-is-set-o-errexit-breaking-this-read-heredoc-expression/265151#265151
 		read -r -d '' rootCreate <<-EOSQL || true
