@@ -24,7 +24,6 @@ RUN \
     chmod 777 /var/run/mysqld
 
 COPY docker.cnf /etc/mysql/conf.d/docker.cnf
-COPY security.cnf /etc/mysql/conf.d/security.cnf
 
 RUN mkdir /docker-entrypoint-initdb.d
 
