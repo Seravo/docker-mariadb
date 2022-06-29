@@ -1,4 +1,4 @@
-FROM ghcr.io/seravo/ubuntu:impish
+FROM ghcr.io/seravo/ubuntu:jammy
 
 ARG APT_PROXY
 ARG VCS_REF
