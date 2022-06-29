@@ -36,4 +36,4 @@ ENV LC_ALL C.UTF-8
 ENV LC_LANG C.UTF-8
 
 CMD ["mariadbd"]
-HEALTHCHECK --interval 30s --timeout 1s --start-period=30s --retries=3 CMD mysql -e 'SELECT NOW();'
+HEALTHCHECK --interval=30s --timeout=1s --start-period=30s --retries=3 CMD mysql -e 'SELECT NOW();'
