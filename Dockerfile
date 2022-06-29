@@ -1,19 +1,18 @@
-FROM ypcs/debian:bullseye
+FROM ghcr.io/seravo/ubuntu:impish
 
 ARG APT_PROXY
 ARG VCS_REF
-LABEL org.label-schema.vcs-ref=$VCS_REF
 
-RUN \
-    /usr/lib/docker-helpers/apt-setup && \
-    /usr/lib/docker-helpers/apt-upgrade && \
-    apt-get -y install \
+RUN sed -i 's/main$/main universe/g' /etc/apt/sources.list && \
+    apt-setup && \
+    apt-upgrade && \
+    DEBIAN_FRONTEND=noninteractive apt-get --assume-yes install \
         galera-4 \
         gosu \
         mariadb-server \
         pwgen \
         tzdata && \
-    /usr/lib/docker-helpers/apt-cleanup
+    apt-cleanup
 
 RUN \
     sed -ri 's/^user\s/#&/' /etc/mysql/my.cnf /etc/mysql/conf.d/* && \
